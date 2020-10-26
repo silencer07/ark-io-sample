@@ -4,6 +4,8 @@ import WalletList from "./pages/wallet-list/wallet-list";
 import ImportWallet from "./pages/import-wallet/import-wallet";
 import CreateWallet from "./pages/create-wallet/create-wallet";
 import ParaphraseList from "./pages/create-wallet/paraphrase-list";
+import TransactionList from "./pages/transaction-details/transaction-list";
+import DelegateList from "./pages/delegate-details/delegate-list";
 
 const Routes = () => (
   <Switch>
@@ -12,6 +14,8 @@ const Routes = () => (
       <Route exact={true} path="/import-wallet" component={ImportWallet} />
       <Route exact={true} path="/create-wallet" component={CreateWallet} />
       <Route exact={true} path="/paraphrase-list" component={ParaphraseList} />
+      <Route exact={true} path="/transaction-list" component={TransactionList} />
+      <Route exact={true} path="/delegate-list" component={DelegateList} />
   </Switch>
 );
 

@@ -6,6 +6,10 @@ h1 {
     @apply text-3xl font-bold
 }
 
+h3 {
+    @apply text-xl font-semibold
+}
+
 button {
     @apply border border-gray-500 bg-gray-500 text-white rounded-md px-12 py-2 transition duration-500 select-none ease-linear text-xl mx-2
 }
@@ -16,4 +20,17 @@ button:hover {
 
 button:focus {
     @apply outline-none shadow-outline
+}
+
+table, th, tr, td {
+    @apply bg-gray-100;
+    border: 1px solid black;
+}
+
+th {
+    @apply text-gray-800 font-semibold
+}
+
+td {
+    @apply text-gray-900
 }
