@@ -11,9 +11,11 @@ class Layout extends React.Component<LayoutProps> {
         const Routes = this.props.routes;
 
         return (
-            <Router>
-                <Routes/>
-            </Router>
+            <div className="container mx-auto">
+                <Router>
+                    <Routes/>
+                </Router>
+            </div>
         );
     }
 }

@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
-import './pages/home/home.css';
+import './tailwind.output.css';
 import {RootStore} from "./model/root-store/root-store";
 import {setupRootStore} from "./model/root-store/setup-root-store";
 import {RootStoreProvider} from "./model/root-store/root-store-context";
