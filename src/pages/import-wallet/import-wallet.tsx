@@ -1,6 +1,4 @@
 import React from "react";
-import {FaInfoCircle} from 'react-icons/fa'
-import {AiOutlineClose} from 'react-icons/ai'
 import {SuccessButton} from "../../components/button/button";
 import {InputWithLabel} from "../../components/input-with-label/input-with-label";
 import {Alert} from "../../components/alert/alert";
