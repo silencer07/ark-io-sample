@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+h1 {
     @apply text-3xl font-bold
+}
+
+button {
+    @apply border border-gray-500 bg-gray-500 text-white rounded-md px-12 py-2 transition duration-500 select-none ease-linear text-xl mx-2
+}
+
+button:hover {
+    @apply bg-gray-600
+}
+
+button:focus {
+    @apply outline-none shadow-outline
 }
