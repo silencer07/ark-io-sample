@@ -1,11 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './pages/home/home.css';
 import {RootStore} from "./model/root-store/root-store";
 import {setupRootStore} from "./model/root-store/setup-root-store";
 import {RootStoreProvider} from "./model/root-store/root-store-context";
+import Layout from "./layout";
 
-export default function App() {
+export interface AppProps {
+    router: React.ComponentType;
+    routes: React.ComponentType<any>;
+}
+
+export const App: React.FC<AppProps> = ({ router, routes }) => {
     const [rootStore, setRootStore] = useState<RootStore | undefined>(undefined)
     useEffect(() => {
         (async () =>
@@ -19,22 +25,9 @@ export default function App() {
 
     return (
         <RootStoreProvider value={rootStore}>
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <p>
-                        Edit <code>src/App.tsx</code> and save to reload.
-                    </p>
-                    <a
-                        className="App-link"
-                        href="https://reactjs.org"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
-            </div>
+            <Layout router={router} routes={routes}/>
         </RootStoreProvider>
     );
 }
+
+export default App

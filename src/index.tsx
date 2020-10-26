@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {RouteComponentProps} from "react-router";
+import Routes from "./routes";
+import {BrowserRouter} from "react-router-dom";
+
+const routes: React.ComponentType<RouteComponentProps<any>> = Routes;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App router={BrowserRouter} routes={routes} />
   </React.StrictMode>,
   document.getElementById('root')
 );
