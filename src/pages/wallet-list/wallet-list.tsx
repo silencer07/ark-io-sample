@@ -2,7 +2,7 @@ import React from "react";
 
 export const WalletList: React.FC = () => (
     <div>
-        import wallet
+        Wallet list
     </div>
 )
 

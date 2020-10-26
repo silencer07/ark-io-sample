@@ -2,7 +2,7 @@ import React from "react";
 
 export const CreateWallet: React.FC = () => (
     <div>
-        create wallet
+        Create Wallet
     </div>
 )
 
