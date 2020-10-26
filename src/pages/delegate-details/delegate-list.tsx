@@ -4,7 +4,7 @@ import TransactionDetailsTopNav from "../../components/transaction-details-top-n
 
 export const DelegateList: React.FC<any> = () => {
     return (
-        <div>
+        <div className="overflow-y-auto">
             <div className="flex-1 flex flex-col">
                 <TransactionDetailsTopNav walletAddress="DS7xPYidDHNtinPSv5L2kXsvhgS3MYpEsV"  />
                 <h1 className="py-1">Delegate Details:</h1>

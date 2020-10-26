@@ -6,8 +6,8 @@ export interface TransactionDetailsTopNavProps {
 }
 
 export const TransactionDetailsTopNav: React.FC<TransactionDetailsTopNavProps> = ({ walletAddress }) => (
-    <header className="flex flex-row bg-gray-100 text-gray-800 font-bold shadow w-full mb-10">
-        <div className="container flex flex-wrap p-3 m-2 flex-col md:flex-row">
+    <header className="flex flex-col-reverse md:flex-row bg-gray-100 p-3 md:items-center text-gray-800 font-bold shadow w-full mb-10">
+        <div className="container flex flex-wrap">
             <nav className="flex w-full flex-wrap text-base">
                 <NavLink to={"transaction-list"} className="mr-5 hover:text-gray-900 cursor-pointer border-b border-transparent hover:border-indigo-600">
                     Transactions
@@ -17,7 +17,7 @@ export const TransactionDetailsTopNav: React.FC<TransactionDetailsTopNavProps> =
                 </NavLink>
             </nav>
         </div>
-        <div className="flex items-center px-2">
+        <div className="flex">
             <h3>{walletAddress}</h3>
         </div>
     </header>
