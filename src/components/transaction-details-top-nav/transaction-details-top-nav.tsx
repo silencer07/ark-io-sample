@@ -2,10 +2,10 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 
 export interface TransactionDetailsTopNavProps {
-    walletAddress: string
+    address: string
 }
 
-export const TransactionDetailsTopNav: React.FC<TransactionDetailsTopNavProps> = ({ walletAddress }) => (
+export const TransactionDetailsTopNav: React.FC<TransactionDetailsTopNavProps> = ({ address }) => (
     <header className="flex flex-col-reverse md:flex-row bg-gray-100 p-3 md:items-center text-gray-800 font-bold shadow w-full mb-10">
         <div className="container flex flex-wrap">
             <nav className="flex w-full flex-wrap text-base">
@@ -18,7 +18,7 @@ export const TransactionDetailsTopNav: React.FC<TransactionDetailsTopNavProps> =
             </nav>
         </div>
         <div className="flex">
-            <h3>{walletAddress}</h3>
+            <h3>{address}</h3>
         </div>
     </header>
 )

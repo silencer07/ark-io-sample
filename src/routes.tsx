@@ -7,15 +7,19 @@ import ParaphraseList from "./pages/create-wallet/paraphrase-list";
 import DelegateList from "./pages/delegate-list/delegate-list";
 import TransactionList from "./pages/transaction-list/transaction-list";
 
+export interface WithWalletAddressRouteParam {
+      address: string
+}
+
 const Routes = () => (
   <Switch>
-      <Route exact={true} path="/" to="/home" render={() => <Redirect to="/wallet-list" push={true} />} />
-      <Route exact={true} path="/wallet-list" component={WalletList} />
-      <Route exact={true} path="/import-wallet" component={ImportWallet} />
-      <Route exact={true} path="/create-wallet" component={CreateWallet} />
-      <Route exact={true} path="/paraphrase-list" component={ParaphraseList} />
-      <Route exact={true} path="/transaction-list" component={TransactionList} />
-      <Route exact={true} path="/delegate-list" component={DelegateList} />
+      <Route exact path="/" to="/home" render={() => <Redirect to="/wallet-list" push={true} />} />
+      <Route exact path="/wallet-list" component={WalletList} />
+      <Route exact path="/import-wallet" component={ImportWallet} />
+      <Route exact path="/create-wallet" component={CreateWallet} />
+      <Route exact path="/paraphrase-list" component={ParaphraseList} />
+      <Route strict sensitive path="/transaction-list/:address" component={TransactionList} />
+      <Route strict sensitive path="/delegate-list/:address" component={DelegateList} />
   </Switch>
 );
 

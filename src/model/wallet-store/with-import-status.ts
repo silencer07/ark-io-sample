@@ -1,6 +1,7 @@
 import {observable, IObservableValue} from "mobx"
+import {StatusType} from "../extensions/with-status";
 
-export type ImportStatusType = "idle" | "pending" | "done" | "error"
+export type ImportStatusType = StatusType
 
 export const withImportStatus = () => {
   const importStatus: IObservableValue<string> = observable.box("idle")

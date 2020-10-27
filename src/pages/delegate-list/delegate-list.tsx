@@ -5,7 +5,7 @@ export const DelegateList: React.FC<any> = () => {
     return (
         <div className="overflow-y-auto">
             <div className="flex-1 flex flex-col">
-                <TransactionDetailsTopNav walletAddress="DS7xPYidDHNtinPSv5L2kXsvhgS3MYpEsV" />
+                <TransactionDetailsTopNav address="DS7xPYidDHNtinPSv5L2kXsvhgS3MYpEsV" />
                 <h1 className="py-1">Delegate Details:</h1>
                 <table className="table-fixed">
                     <thead>

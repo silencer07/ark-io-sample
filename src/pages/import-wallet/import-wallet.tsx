@@ -20,7 +20,7 @@ export const ImportWallet: React.FC = observer(() => {
 
     useEffect(() => {
         if (importStatus === "done") {
-            history.push("/transaction-list") // TODO add url param here
+            history.push(`/transaction-list/${_.trim(address)}`)
         } else if (importStatus === "error"){
             setShowErrorMessage(true)
         }
@@ -55,6 +55,7 @@ export const ImportWallet: React.FC = observer(() => {
                     <ErrorAlert
                         message={"Cannot import wallet. Make sure that the address is correct."}
                         onCloseButtonClick={() => setShowErrorMessage(false)}
+                        className={"md:mx-6 my-3 md:my-0 max-h-3"}
                     />
                     }
                 </div>

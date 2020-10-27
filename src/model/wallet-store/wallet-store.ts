@@ -1,8 +1,7 @@
 import {applySnapshot, flow, Instance, SnapshotOut, types} from "mobx-state-tree"
 import {WalletModel, WalletSnapshot} from "../wallet/wallet";
 import {withImportStatus} from "./with-import-status";
-
-const ROOT_URL = "/api/wallets"
+import {COMMON_HEADERS, parseAmount, WALLET_ROOT_URL} from "../common";
 
 export const WalletStoreModel = types.model("WalletStore").props({
     wallets: types.array(WalletModel)
@@ -16,14 +15,15 @@ export const WalletStoreModel = types.model("WalletStore").props({
     .actions(self => ({
         import: flow( function * (address: string) {
             try {
-                const response = yield fetch(`${ROOT_URL}/${address}`, {
-                    headers: new Headers({'content-type': 'application/json'})
+                self.importStatus = "pending"
+                const response = yield fetch(`${WALLET_ROOT_URL}/${address}`, {
+                    headers: new Headers(COMMON_HEADERS)
                 })
                 if (response.ok) {
                     const json = yield response.json()
                     const snapshot = {
                         address: json.data.address,
-                        darkAmount: parseInt(json.data.balance, 10) / 1_000_000
+                        darkAmount: parseAmount(json.data.balance)
                     } as WalletSnapshot
 
                     const existing = self.findByAddress(address)
@@ -35,11 +35,11 @@ export const WalletStoreModel = types.model("WalletStore").props({
 
                     self.importStatus = "done"
                 } else {
-                    self.setImportStatus("error")
+                    self.importStatus = "error"
                 }
             } catch (e) {
                 console.error("Failed to fetch wallet", e)
-                self.setImportStatus("error")
+                self.importStatus = "error"
             }
         })
     }))
