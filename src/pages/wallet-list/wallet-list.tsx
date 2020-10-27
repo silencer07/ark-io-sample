@@ -1,8 +1,13 @@
 import React from "react";
 import WalletItem from "../../components/wallet-item/wallet-item";
 import {useHistory} from "react-router";
+import {useStores} from "../../model/root-store/root-store-context";
+import {observer} from "mobx-react-lite";
 
-export const WalletList: React.FC = () => {
+export const WalletList: React.FC = observer(() => {
+    const {walletStore} = useStores()
+    const {wallets} = walletStore
+
     const history = useHistory()
     return (
         <div>
@@ -10,21 +15,19 @@ export const WalletList: React.FC = () => {
             <div className="flex px-5 py-5">
                 <div className="w-full max-w-3xl">
                     <div className="-mx-2 md:flex">
-                        <WalletItem
-                            walletAddress={"DEVJSbVzw4W7gztrgiBtn73hTGenhQCb44"}
-                            darkBalance={1.00}
-                            onClick={() => history.push("/transaction-list")}
-                        />
-                        <WalletItem
-                            walletAddress={"DS7xPYidDHNtinPSv5L2kXsvhgS3MYpEsV"}
-                            darkBalance={998.93721448}
-                            onClick={() => history.push("/transaction-list")}
-                        />
+                        { wallets.map(w =>
+                            <WalletItem
+                                key={`wallet-item-${w.address}`}
+                                walletAddress={w.address}
+                                darkBalance={w.darkAmount}
+                                onClick={() => history.push("/transaction-list")}
+                            />
+                        )}
                     </div>
                 </div>
             </div>
         </div>
     )
-}
+})
 
 export default WalletList
