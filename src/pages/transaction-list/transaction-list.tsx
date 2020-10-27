@@ -2,7 +2,7 @@ import React from "react";
 import {shortenId} from "../../utils/utils";
 import TransactionDetailsTopNav from "../../components/transaction-details-top-nav/transaction-details-top-nav";
 
-export const DelegateList: React.FC<any> = () => {
+export const TransactionList: React.FC<any> = () => {
     return (
         <div className="overflow-y-auto">
             <div className="flex-1 flex flex-col">
@@ -36,4 +36,4 @@ export const DelegateList: React.FC<any> = () => {
     )
 }
 
-export default DelegateList
+export default TransactionList

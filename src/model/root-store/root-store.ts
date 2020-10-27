@@ -1,11 +1,8 @@
 import {Instance, SnapshotOut, types} from "mobx-state-tree"
-import {WalletModel} from "../wallet/wallet";
+import {WalletStoreModel} from "../wallet-store/wallet-store";
 
-/**
- * A RootStore model.
- */
 export const RootStoreModel = types.model("RootStore").props({
-    wallets: types.array(WalletModel)
+    walletStore: types.optional(WalletStoreModel, {})
 })
 
 // eslint-disable-line @typescript-eslint/no-unused-vars

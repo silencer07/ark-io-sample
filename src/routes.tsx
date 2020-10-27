@@ -4,8 +4,8 @@ import WalletList from "./pages/wallet-list/wallet-list";
 import ImportWallet from "./pages/import-wallet/import-wallet";
 import CreateWallet from "./pages/create-wallet/create-wallet";
 import ParaphraseList from "./pages/create-wallet/paraphrase-list";
-import TransactionList from "./pages/transaction-details/transaction-list";
-import DelegateList from "./pages/delegate-details/delegate-list";
+import DelegateList from "./pages/delegate-list/delegate-list";
+import TransactionList from "./pages/transaction-list/transaction-list";
 
 const Routes = () => (
   <Switch>
