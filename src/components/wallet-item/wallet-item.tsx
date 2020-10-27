@@ -1,14 +1,13 @@
-import React from "react";
+import React, {DetailedHTMLProps, HTMLAttributes} from "react";
 import {shortenId} from "../../utils/utils";
 
-export interface WalletItemProps {
+export interface WalletItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>{
     walletAddress: string
     darkBalance: number
-    onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
 }
 
-export const WalletItem: React.FC<WalletItemProps> = ({walletAddress, darkBalance, onClick}) => (
-    <div className="w-full md:w-1/3 px-2 py-2 md:py-0" onClick={onClick}>
+export const WalletItem: React.FC<WalletItemProps> = ({walletAddress, darkBalance, ...props}) => (
+    <div className={`w-full md:w-1/3 px-2 py-2 md:py-0 ${props.className}`} {...props}>
         <div className="rounded-lg shadow-sm">
             <div className="rounded-lg bg-white shadow-lg md:shadow-xl relative overflow-hidden">
                 <div className="px-3 pt-8 pb-10 text-center relative z-10">

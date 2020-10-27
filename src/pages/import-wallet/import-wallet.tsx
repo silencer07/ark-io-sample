@@ -41,13 +41,13 @@ export const ImportWallet: React.FC = observer(() => {
                 <InputWithLabel
                     id="address"
                     title="Address"
-                    tabIndex={1}
+                    tabIndex={10}
                     onChange={(e) => setAddress(e.target.value)}
                 />
                 <div className="md:w-full md:flex flex-row items-center" style={{minHeight: "8.5rem"}}>
                     <SuccessButton
                         title="Add"
-                        tabIndex={2}
+                        tabIndex={11}
                         type={"button"}
                         onClick={doImport}
                     />

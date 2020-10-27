@@ -15,8 +15,9 @@ export const WalletList: React.FC = observer(() => {
             <div className="flex px-5 py-5">
                 <div className="w-full max-w-3xl">
                     <div className="-mx-2 md:flex">
-                        { wallets.map(w =>
+                        { wallets.map((w,i) =>
                             <WalletItem
+                                tabIndex={i + 10}
                                 key={`wallet-item-${w.address}`}
                                 walletAddress={w.address}
                                 darkBalance={w.darkAmount}
