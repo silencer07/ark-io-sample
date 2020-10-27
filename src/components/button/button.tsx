@@ -1,13 +1,12 @@
-import React, {HTMLAttributes} from "react";
+import React, {ButtonHTMLAttributes, DetailedHTMLProps} from "react";
 
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement>{
+export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
     title: string
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 export const Button:React.FC<ButtonProps> = ({ title, ...props }) => (
     <button
-        type="button"
         {...props}
     >
         {title}
