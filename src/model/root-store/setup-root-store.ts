@@ -5,8 +5,8 @@ const ROOT_STATE_STORAGE_KEY = "ark-io-data"
 
 export async function setupRootStore() {
   let rootStore: RootStore
-  let data: any = localStorage.getItem("ROOT_STATE_STORAGE_KEY") || {}
-
+  let data: any = localStorage.getItem(ROOT_STATE_STORAGE_KEY)
+  data = data ? JSON.parse(data) : {}
   try {
     rootStore = RootStoreModel.create(data)
   } catch (e) {
