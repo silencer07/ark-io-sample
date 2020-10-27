@@ -26,21 +26,30 @@ export const ImportWallet: React.FC = observer(() => {
         }
     }, [importStatus, history])
 
+    const doImport = () => walletStore.import(_.trim(address))
+
     return (
         <div>
             <h1>Import Wallet</h1>
-            <div className="bg-white text-gray-600 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <form
+                className="bg-white text-gray-600 shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2"
+                onSubmit={(e) => {
+                    e.preventDefault()
+                    doImport()
+                }}
+            >
                 <InputWithLabel
                     id="address"
                     title="Address"
-                    tabIndex={0}
+                    tabIndex={1}
                     onChange={(e) => setAddress(e.target.value)}
                 />
                 <div className="md:w-full md:flex flex-row items-center" style={{minHeight: "8.5rem"}}>
                     <SuccessButton
                         title="Add"
-                        tabIndex={1}
-                        onClick={() => walletStore.import(_.trim(address))}
+                        tabIndex={2}
+                        type={"button"}
+                        onClick={doImport}
                     />
                     { showErrorMessage &&
                     <ErrorAlert
@@ -49,7 +58,7 @@ export const ImportWallet: React.FC = observer(() => {
                     />
                     }
                 </div>
-            </div>
+            </form>
         </div>
 
     )
